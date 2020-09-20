@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css?family=Niconne|Teko&display=swap');
+
+:root{
+  --primary-color: rgba(198,153,99,0.7);
+  --golden-color: #c69963;
+}
+
+a{
+  color: #fff !important;
+}
+
+p{
+  margin: 0;
+}
+
+ul{
+  list-style: none;
+}
+
+
+/* UTILITIES */
+.main-text{
+  font-family: 'Niconne', cursive;
+  color: var(--golden-color);  
+}
+
+.label-text{
+  font-size: 1.1rem;
+  font-family: 'Teko', sans-serif;
+  color: #101D2C;
+  text-transform: uppercase;
+  line-height: 0;
+  letter-spacing: 1px;
+}
+
+/*---------- btn style -------------*/
+.btn{
+  border: 1px solid var(--golden-color);
+  position: relative; /* position relative in case of using pseudo selector to create a shining hover effect */
+  overflow: hidden; /*  fix the hover effect out border issue */
+}
+
+
+.btn::before{
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent); /* most important hover i have ever seen */
+  transition: all 650ms;
+}
+
+.btn:hover::before{
+  left: 100%;
+}
+/*-----x----- btn style -------x------*/
+
+
+
+
+/* Header & Navbar*/
+header{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient( rgba(16,29,44,0.95),  rgba(16,29,44,0.95)),url('../img/header-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+header .navbar-brand{
+  position: absolute;
+  width: 100%;
+  max-width: 100px;
+  top: 10px;
+  transition: opacity 650ms;
+}
+
+header .navbar-brand:hover{
+  opacity: 0.8;
+}
+
+
+/* Hamburger Menu */
+.hamburger-menu{
+  position: fixed;
+  top: 25px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  display: flex; /* because i wanna position all my icons prefectly in middle */
+  background-color: #101D2C;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 999; /* it will be on top of every thing */
+
+}
+
+.hamburger-menu i {
+  font-size: 30px;
+  color: var(--primary-color);
+  margin: auto;
+}
+
+/* display none because for the toggle effect  */
+.hamburger-menu .fa-times{
+  display: none;
+}
+
+/* i add .open class for jquery to target it for toggling (no gape on .open it has to stick to => .fa-times.open */
+.hamburger-menu .fa-times.open{
+  display: block;
+}
+.hamburger-menu .fa-bars.open{
+  display: none;
+}
+
+.nav-list{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #101D2C;
+  z-index: 900; /* it set on top of every things but hamburger menu has more number rang so tha is on top of nav-list */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;  /*  disappear the nav-list  */
+  transform: scale(0); /*it fix to totally disapper the nav-link */ 
+  transition: opacity 650ms;
+
+
+}
+/* i add .open class for jquery to target it for toggling and when we toggle then nav-list will reveal */
+.nav-list.open{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-list a{
+  margin-bottom: 20px;
+}
+
+.nav-list a:hover{
+  color: var(--golden-color) !important;
+}
+
+.hero-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.hero-text h1{
+  font-family: 'Niconne', cursive;
+  color: var(--golden-color);
+}
+
+
+
+
+/* About */
+#about .btn{
+  color: var(--golden-color) !important;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  transition: background-color 650ms;
+}
+
+#about .btn:hover{
+  color: #fff !important;
+  background-color: var(--golden-color);
+}
+
+
+
+/* Menu */
+#menu{
+  background: #101D2C;
+}
+
+.shop-info i{
+  color: var(--golden-color);
+  font-size: 50px;
+}
+
+.shop-info h1{
+  font-family: 'Teko', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.shop-info p,
+.shop-info address{
+  color: rgba(255,255,255,0.5);
+}
+
+hr{
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+
+/* styling the point */
+.point-left,
+.point-right{
+  position: relative;
+  background-color: #fff;
+  display: flex;
+}
+
+.point-left::before,
+.point-right::before{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: inherit;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: 1;
+}
+
+.menu-item-description{
+  padding: 0 1rem;
+  margin: auto;
+
+}
+
+.menu-item-description h6{
+  color : var(--golden-color);
+  font-size: 20px;
+}
+
+.menu-item-description h4{
+  line-height: 1.3;
+  font-family: 'Teko', sans-serif;
+  color: #101D2C;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.menu-item-description .btn{
+  background: var(--golden-color);
+  padding: 0.3rem 2rem 0.3rem 2rem;
+  font-size: .85rem;
+}
+
+
+/* Chef */
+.chef-heading-bg{
+  background: #101D2C;
+}
+
+.chef-info h1{
+  font-size: 25px;
+  font-family: 'Teko', sans-serif;
+  color: #101D2C;
+  letter-spacing: 1px;
+}
+
+.chef-info h6{
+  color: var(--golden-color);
+}
+
+#chef img{
+  width: 80%;
+}
+
+
+#main-footer {
+  background: #101D2C;
+}
+
+#main-footer p{
+  color: rgba(255,255,255,0.5);
+
+}
+
+
+
+
+/* Media Queries */
+
+@media (min-width: 576px){
+  header .navbar-brand {
+    min-width: 150px; 
+
+  }
+  .hamburger-menu{
+    position: absolute; /* i change position fix to absolute in order to prevent hamburger menu moves around  (in this case absolute was my better choice) */ 
+  }
+  
+  .point-left::before,
+  .point-right::before{
+    display: none;
+  }
+}
+
+
+@media (min-width: 992px){
+  .hamburger-menu {
+    display: none;
+  }
+
+  nav{
+    float: left; /* to move the the nav-brand to the left in wide screen */
+  }
+  
+  header .navbar-brand {
+    margin-left: 50px;
+  }
+
+  .nav-list{
+  position: absolute; /* i change position fix to absolute in order to prevent nav items moves around  (in this case absolute was my better choice) */
+  top: 50px;
+  right: 0;
+  width: initial;/* resteing width and height make the nav items set in their position */
+  height: initial;
+  background-color: initial; 
+  flex-direction: row;
+  opacity: initial;  /*reseting the opacity in order to nav items become visible */ 
+  transform: initial; /*reseting the transform scale in order to nav items become visible */ 
+  justify-content: flex-end;
+  }
+
+  .nav-list a{
+    margin-right: 80px;
+
+  }
+
+  .nav-link{
+    position: relative;
+    padding: 0;
+}
+/*hover affect on navbar */
+.nav-link::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    background-color: var(--golden-color);
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0); /* in order to disappear the border befor hover effect */
+    transform-origin: center; /* this is the starting point of the hover border which has 3 parameters right/center/left */
+    transition: transform 650ms;
+}
+.nav-link:hover::before{
+    transform: scaleX(1);/* in order to reveal the border on hover*/
+}
+.nav-list a:hover{
+  color: #fff !important;
+}
+
+}
+ 
+@media (min-width: 1200px){
+  .point-left::before,
+  .point-right::before{
+    display: block;
+    top: 50%;
+    left: initial;
+    transform: translateX(-50%) rotate(45deg);
+}
+  .point-left::before{
+  }
+  .point-right::before{
+    right: -25px;
+  }
+  
+}
+
+/* in this hight(ipad pro height i have to fix the content to be set center because i change the header img to 50vh */
+@media(min-height: 1200px){
+  header{
+    height: 50vh;
+    
+  }
+  
+  .hero-text{
+    height: 50vh;
+  }
+  
+}
+
